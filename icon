@@ -1,0 +1,49 @@
+import {createStackNavigator,
+  createAppContainer,
+  createBottomTabNavigator,
+  createDrawerNavigator,
+  createMaterialTopTabNavigator
+  } from 'react-navigation';
+  import {Image} from 'react-native';
+ import Icon from 'react-native-vector-icons/Ionicons';
+  import {createMaterialBottomTabNavigator} from 'react-navigation-material-bottom-tabs';
+import Page1 from './Page1';
+import Page2 from './Page2';
+import Page3 from './Page3';
+import Page4 from './Page4';
+
+const RootNavigation = createMaterialTopTabNavigator({
+  
+    Page1: {screen: Page1,
+      navigationOptions:{
+        tabBarLabel:'Page4',
+        tabBarIcon: () => (
+          <Icon name="roket" color={tintColor} size={24}></Icon>
+
+        )
+    }},
+  Page2: {screen : Page2,
+    navigationOptions:{
+      tabBarIcon: ({tintColor}) => (
+        <Icon name="ios-add" color={tintColor} size={24}></Icon>
+      )
+  }
+  },
+  Page3: {screen: Page3,
+  
+  },
+Page4: {screen : Page4},
+
+}, 
+{
+  initialRouteName: 'Page1',
+  activeColor: '#f0edf6',
+  inactiveColor: '#3e2465',
+tabBarPosition:'bottom',
+  barStyle: { backgroundColor: '#694fad' },
+}
+
+
+);
+
+export default createAppContainer(RootNavigation);
